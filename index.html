@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="index.css" type="text/css" media="screen"/>
+    <title>Henri's Garden</title>
+  
+</head>
+<body> 
+    <h1 id="title">Henri's Garden</h1> <img id="henri" src="image/henri.png" alt="" width="218" height="200" longdesc="image/henri.png" />
+    <p id="instructions">Click to nuture life.</p>
+<div id="garden" onclick="earnFlowers()"></div>
+<pre id="currency"><em>Garden Happiness: 0</em></pre>
+	
+	<div id="shop">
+    <div class="shop-category">Plants</div>
+    <div class="shop-items-container" id="flowers-section">
+        <div class="shop-item">
+            <h3>Sunflower</h3>
+			<p>Cost: <span id="sunflower-cost">14</span> Happiness</p>
+			<button onclick="buyPlant('sunflower')">Buy</button>
+        </div>
+    
+        <div class="shop-item">
+            <h3>Daisy</h3>
+            <p>Cost: <span id="daisy-cost">80</span> Happiness</p>
+            <button onclick="buyPlant('daisy')">Buy</button>
+        </div>
+        <div class="shop-item">
+            <h3>Rose</h3>
+            <p>Cost: <span id="rose-cost">400</span> Happiness</p>
+            <button onclick="buyPlant('rose')">Buy</button>
+        </div>
+
+<div class="shop-item hidden" id="tulip-item">
+    <h3>Tulip</h3>
+    <p>Cost: <span id="tulip-cost">900</span> Happiness</p>
+    <button onclick="buyPlant('tulip')">Buy</button>
+</div>	
+<div class="shop-item hidden" id="hydrangea-item">
+    <h3>Hydrangea</h3>
+    <p>Cost: <span id="hydrangea-cost">2,000</span> Happiness</p>
+    <button onclick="buyPlant('hydrangea')">Buy</button>
+</div>
+<div class="shop-item hidden" id="potato-item">
+    <h3>Potato</h3>
+    <p>Cost: <span id="potato-cost">10,000</span> Happiness</p>
+    <button onclick="buyPlant('potato')">Buy</button>
+</div>
+	
+<div class="shop-item hidden" id="meat-flower-item">
+    <h3>Meat Flower</h3>
+    <p>Cost: <span id="meatFlower-cost">12,000</span> Happiness</p>
+    <button onclick="buyPlant('meatFlower')">Buy</button>
+</div>
+<div class="shop-item hidden" id="mayonnaise-item">
+    <h3>Mayonnaise</h3>
+    <p>Cost: <span id="mayonnaise-cost">200,000</span> Happiness</p>
+    <button onclick="buyPlant('mayonnaise')">Buy</button>
+</div>
+<div class="shop-item hidden" id="maurice-item">
+    <h3>Maurice</h3>
+    <p>Cost: <span id="maurice-cost">1,000,000</span> Happiness</p>
+    <button onclick="buyPlant('maurice')">Buy</button>
+</div>
+<div class="shop-item hidden" id="aflower-item">
+    <h3>Flower</h3>
+    <p>Cost: <span id="aflower-cost">10,101,010</span> Happiness</p>
+    <button onclick="buyPlant('aflower')">Buy</button>
+</div>
+<div class="shop-item hidden" id="television-item">
+    <h3>Television</h3>
+    <p>Cost: <span id="television-cost">60,687,204</span> Happiness</p>
+    <button onclick="buyPlant('television')">Buy</button>
+</div>
+<div class="shop-item hidden" id="flesh-homunculus-item">
+    <h3>Flesh Homunculus</h3>
+    <p>Cost: <span id="flesh-cost">111,111,111</span> Happiness</p>
+    <button onclick="buyPlant('flesh')">Buy</button>
+</div>
+<div class="shop-item hidden" id="garbage-item">
+    <h3>garbage</h3>
+    <p>Cost: <span id="garbage-cost">200,000,000</span> Happiness</p>
+    <button onclick="buyPlant('garbage')">Buy</button>
+</div>
+<div class="shop-item hidden" id="ancientrelic-item">
+    <h3>Ancient Relic</h3>
+    <p>Cost: <span id="ancientrelic-cost">999,999,999</span> Happiness</p>
+    <button onclick="buyPlant('ancientrelic')">Buy</button>
+</div>
+<div class="shop-item hidden" id="evidence-item">
+    <h3>Evidence.</h3>
+    <p>Cost: <span id="evidence-cost">1</span> Happiness</p>
+    <button onclick="buyPlant('evidence')">Buy</button>
+</div>
+	<div class="shop-item hidden" id="corpseflower-item">
+    <h3>Corpse Flower</h3>
+    <p>Cost: <span id="corpseflower-cost">-10</span> Happiness</p>
+    <button onclick="buyPlant('corpseflower')">Buy</button>
+</div>
+	<div class="shop-item hidden" id="carnation-item">
+    <h3>Carnation</h3>
+    <p>Cost: <span id="carnation-cost">-100000</span> Happiness</p>
+    <button onclick="buyPlant('carnation')">Buy</button>
+</div>	
+	<div class="shop-item hidden" id="henriflower-item">
+    <h3>Henri</h3>
+    <p>Cost: <span id="henriflower-cost">-999,999,999,999</span> Happiness</p>
+    <button onclick="buyPlant('henriflower')">Buy</button>
+</div>
+			
+<div class="shop-category">Terrain</div>
+
+<div class="shop-items-container" id="terrain-section">
+    <div class="shop-item"> 
+        <h3>"Grass"</h3>
+        <p>Cost: <span id="grass-cost">1,000</span> Happiness</p>
+        <button id="buy-grass" onclick="buyTerrain('grass')">Buy</button>
+    </div>
+ <div class="shop-item hidden" id="sulfur-item"> 
+    <h3>Sulfur</h3>
+    <p>Cost: <span id="sulfur-cost">10,000,000</span> Happiness</p>
+    <button id="buy-sulfur" onclick="buyTerrain('sulfur')">Buy</button>
+</div>
+
+<div class="shop-item hidden" id="ash-item"> 
+    <h3>Grave</h3>
+    <p>Cost: <span id="ash-cost">100,000,000</span> Happiness</p>
+    <button id="buy-ash" onclick="buyTerrain('ash')">Buy</button>
+</div>
+</div>
+		
+		
+</div>	
+		<audio id="buy-sound" src="audio/buy.mp3" preload="auto"></audio>
+		<audio id="background-music" src="audio/music1.mp3" preload="auto" loop></audio>
+<audio id="click-sound1" src="audio/click1.mp3" preload="auto"></audio>
+<audio id="click-sound2" src="audio/click2.mp3" preload="auto"></audio>
+<audio id="click-sound3" src="audio/click3.mp3" preload="auto"></audio>
+<audio id="mayonnaise-sound" src="audio/mayo.mp3" preload="auto"></audio>
+<audio id="maurice-sound" src="audio/maurice.mp3" preload="auto"></audio>
+
+<script>
+	let evidencePurchased = localStorage.getItem("evidencePurchased") === "true";
+const terrains = {
+    grass: {
+        cost: 1000,
+        income: 20,
+        image: "image/grass.gif",
+        id: "grass"
+    },
+    sulfur: {
+        cost: 10000000,
+        income: 10000,
+        image: "image/sulfur.jpg", 
+        id: "sulfur"
+    },
+    ash: {
+        cost: 500000000,
+        income: -10020,
+        image: "image/ash.jpg",
+        id: "ash"
+    }
+};
+
+let currentTerrain = localStorage.getItem("currentTerrain");
+
+function buyTerrain(type) {
+    const terrain = terrains[type];
+    const alreadyBought = localStorage.getItem(`${type}Purchased`) === "true";
+
+    if (!alreadyBought && currency >= terrain.cost) {
+        currency -= terrain.cost;
+        localStorage.setItem(`${type}Purchased`, "true");
+        localStorage.setItem("currentTerrain", type);
+        currentTerrain = type;
+        updateCurrencyDisplay();
+        document.getElementById("garden").style.backgroundImage = `url('${terrain.image}')`;
+
+        // Disable button
+        document.getElementById(`buy-${type}`).disabled = true;
+
+        // Start passive income
+        startTerrainPassiveIncome(terrain.income);
+    }
+}
+
+function startTerrainPassiveIncome(amount) {
+    if (evidencePurchased) return; // No passive income if evidence was bought
+
+    setInterval(() => {
+        if (!evidencePurchased) {
+            currency += amount;
+            updateCurrencyDisplay();
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    updateCurrencyDisplay();
+    updateShopPrices();
+    loadGardenState();
+    updateShopVisibility();
+    loadAlmanac();
+
+    // Reapply terrain on load
+    if (currentTerrain && terrains[currentTerrain]) {
+        const terrain = terrains[currentTerrain];
+        document.getElementById("garden").style.backgroundImage = `url('${terrain.image}')`;
+        document.getElementById(`buy-${currentTerrain}`).disabled = true;
+        startTerrainPassiveIncome(terrain.income);
+    }
+};
+
+
+</script>
+
+</div>
+ 
+<script>
+        let currency = parseInt(localStorage.getItem("currency")) || 0;
+        let clickValue = parseInt(localStorage.getItem("clickValue")) || 1;
+	let backgroundChanged = false;  // Tracks if the background has been changed
+    let backgroundState = 1; // To keep track of which background is set
+        let plantsOwned = JSON.parse(localStorage.getItem("plantsOwned")) || { sunflower: 0, daisy: 0, rose: 0, tulip: 0, hydrangea: 0, potato: 0, meatFlower: 0, mayonnaise: 0, maurice: 0, aflower: 0, television: 0, flesh: 0, garbage: 0, ancientrelic:0, evidence: 0, corpseflower: 0, carnation: 0, henriflower: 0 };
+
+        const plantData = {
+            sunflower: { cost: 14, growth: 1, image: "image/sunflower.png" },
+            daisy: { cost: 80, growth: 2, image: "image/daisy.png" },
+            rose: { cost: 400, growth: 5, image: "image/rose.png" },
+			tulip: { cost: 900, growth: 7, image: "image/tulip.png"},
+			hydrangea: { cost: 2000, growth: 25, image: "image/hydrangea.png"},
+			potato: { cost: 10000, growth: 180, image: "image/potato.png"},
+            meatFlower: { cost: 12000, growth: 369, image: "image/meatflower.png" },
+			mayonnaise: { cost: 200000, growth: 2444, image: "image/mayonnaise.png" },
+			maurice: { cost: 1000000, growth: 89999, image: "image/transparent.png"},
+			aflower: { cost: 10101010, growth: 202202, image: "image/aflower.png" },
+			television: { cost: 60687204, growth: 1000000, image: "image/television.gif" },
+			flesh: { cost: 111111111, growth: 2000000, image: "image/flesh.png" },
+			garbage: {cost: 200000000, growth: 5000000, image: "image/garbage.png" },
+	        ancientrelic: {cost: 999999999, growth: 10000000, image: "image/ancientrelic1.png" },
+			evidence: {cost: 1, growth: -1, image: "image/evidence.png" },
+			corpseflower: {cost: -44, growth: -10666, image: "image/corpseflower.png" },
+			carnation: {cost: -4444000, growth: -165404289, image: "image/carnation.png" },
+			henriflower: {cost: -999999999999, growth: 0, image: "image/henriflower.png" },
+				  };
+	
+
+        function updateCurrencyDisplay() {
+            document.getElementById("currency").textContent = `Garden Happiness: ${currency}`;
+            localStorage.setItem("currency", currency);
+        }
+
+
+        function updateShopPrices() {
+            for (let plant in plantData) {
+                let cost = Math.round(plantData[plant].cost * (1.3 ** plantsOwned[plant]));
+                document.getElementById(`${plant}-cost`).textContent = cost;
+            }
+        }
+
+        function addPlantToGarden(plantName) {
+            let garden = document.getElementById("garden");
+            let plant = document.createElement("img");
+            plant.src = plantData[plantName].image;
+            plant.classList.add("plant-image");
+            plant.style.left = `calc(${Math.random() * 95}% - 2.5%)`;
+            plant.style.top = `calc(${Math.random() * 95}% - 2.5%)`;
+            garden.appendChild(plant);
+            saveGardenState();
+        }
+function updateShopVisibility() {
+   	if (currency >= 1200) {
+        document.getElementById("tulip-item").classList.remove("hidden");
+        document.getElementById("tulip-item").classList.add("visible");
+    }
+		if (currency >= 5000) {
+        document.getElementById("hydrangea-item").classList.remove("hidden");
+        document.getElementById("hydrangea-item").classList.add("visible");
+    }
+		if (currency >= 7500) {
+        document.getElementById("potato-item").classList.remove("hidden");
+        document.getElementById("potato-item").classList.add("visible");
+    }
+	if (currency >= 10000) {
+        document.getElementById("meat-flower-item").classList.remove("hidden");
+        document.getElementById("meat-flower-item").classList.add("visible");
+    }
+	if (currency >= 60000) {
+        document.getElementById("mayonnaise-item").classList.remove("hidden");
+        document.getElementById("mayonnaise-item").classList.add("visible");
+    }
+	if (currency >= 800000) {
+        document.getElementById("maurice-item").classList.remove("hidden");
+        document.getElementById("maurice-item").classList.add("visible");
+    }
+	if (currency >= 7000000) {
+        document.getElementById("aflower-item").classList.remove("hidden");
+        document.getElementById("aflower-item").classList.add("visible");
+    }
+	if (currency >= 50000000) {
+        document.getElementById("television-item").classList.remove("hidden");
+        document.getElementById("television-item").classList.add("visible");
+    }
+    if (currency >= 100000000) {
+        document.getElementById("flesh-homunculus-item").classList.remove("hidden");
+        document.getElementById("flesh-homunculus-item").classList.add("visible");
+    }
+	 if (currency >= 180000000) {
+        document.getElementById("garbage-item").classList.remove("hidden");
+        document.getElementById("garbage-item").classList.add("visible");
+    }
+	 if (currency >= 600000000) {
+        document.getElementById("ancientrelic-item").classList.remove("hidden");
+        document.getElementById("ancientrelic-item").classList.add("visible");
+    }
+	 if (currency >= 20000000000) {
+        document.getElementById("evidence-item").classList.remove("hidden");
+        document.getElementById("evidence-item").classList.add("visible");
+    }
+	 if (currency <= -1) {
+        document.getElementById("corpseflower-item").classList.remove("hidden");
+        document.getElementById("corpseflower-item").classList.add("visible");
+    }
+	 if (currency <= -10000) {
+        document.getElementById("carnation-item").classList.remove("hidden");
+        document.getElementById("carnation-item").classList.add("visible");
+	 }
+	 if (currency <= -1300000) {
+        document.getElementById("henriflower-item").classList.remove("hidden");
+        document.getElementById("henriflower-item").classList.add("visible");
+    }
+	 if (currency >= 10000) {
+        document.getElementById("sulfur-item").classList.remove("hidden");
+        document.getElementById("sulfur-item").classList.add("visible");
+    }
+	 if (currency >= 100000000) {
+        document.getElementById("ash-item").classList.remove("hidden");
+        document.getElementById("ash-item").classList.add("visible");
+    }
+}
+	
+    function earnFlowers() {
+        currency += clickValue;
+        updateCurrencyDisplay();
+        updateShopVisibility(); // Check if new items should be revealed
+		updateBackgroundMusic(currency); // 🔊 Make sure music updates as currency increases
+		checkShopBackgroundUpdate();
+		
+ if (currency >= 10000 && backgroundState === 1) {
+                    document.body.style.transition = "background-image 100s ease-in-out";
+                    document.body.style.backgroundImage = "url('image/bg2.gif')";
+                    document.getElementById("henri").src = "image/henri2.png";
+                    backgroundState = 2;
+                    localStorage.setItem("backgroundState", backgroundState);
+                } else if (currency >= 100000000 && backgroundState === 2) {
+                    document.body.style.transition = "background-image 100s ease-in-out";
+                    document.body.style.backgroundImage = "url('image/bg3.gif')";
+                    document.getElementById("henri").src = "image/henri3.gif";
+                    backgroundState = 3;
+                    localStorage.setItem("backgroundState", backgroundState);
+                }
+		
+        // Randomly select one of the three click sounds
+        let sounds = [
+            document.getElementById("click-sound1"),
+            document.getElementById("click-sound2"),
+            document.getElementById("click-sound3")
+        ];
+        
+        let randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+        randomSound.currentTime = 0; // Reset audio to start if clicked quickly
+        randomSound.play();
+    }
+
+        function saveGardenState() {
+            localStorage.setItem("gardenState", document.getElementById("garden").innerHTML);
+        }
+
+        function loadGardenState() {
+            let savedGarden = localStorage.getItem("gardenState"); 
+            if (savedGarden) {
+                document.getElementById("garden").innerHTML = savedGarden;
+            }
+        }
+
+function checkShopBackgroundUpdate() {
+    const shop = document.getElementById("shop");
+
+    // Prevent repeating the change if already updated
+    if (currency >= 1000000000 && !shop.classList.contains("shop-upgraded")) {
+        shop.style.backgroundImage = "url('image/shop2.gif')";
+        shop.classList.add("shop-upgraded");
+    }
+}
+	function resetGame() {
+    if (confirm("Are you sure you want to reset your garden? Henri is so close.")) {
+        localStorage.clear();  // Clears all stored data
+        location.reload();  // Reloads the page to reset the game state
+    }
+}
+  
+    // THE ALMANAC
+   // Store unlocked plants
+       let unlockedPlants = JSON.parse(localStorage.getItem("unlockedPlants")) || {};
+
+    const plantInfo = {
+        sunflower: { 
+            name: "Sunflower", 
+            image: "image/sunflower.jpg", 
+            description: "You know what they say about sunflowers, you can't live without them! Sunflowers were actually the first ever flowers discovered believe it or not, and its for that reason they got their namesake, as the word Sun actually means 'Originator', or 'First' in ancient gaelic (the first ever language!!)"
+        },
+        daisy: { 
+            name: "Daisy", 
+            image: "image/daisy.jpg", 
+            description: "Delicate with a sunny center; innocence and cheerfulness embody this specimen to its very core. Similary to how those around us saw her, daisy flowers were pretty similar to the real woman. Not to me however. Looking at this one fills me with an entirely unique disdain. I hate looking at it."
+        },
+        rose: { 
+            name: "Rose", 
+            image: "image/rose.jpg", 
+            description: "I heard something funny once about this one, it went something like: 'A classic symbol of love and passion, the rose is as beautiful as it is thorny'. If truer words haven't been spoken!! I do however find this one quite unappealing in its entirity, and the repulsive folding of its petals helps it zero."
+        },
+		tulip: { 
+            name: "Tulip", 
+            image: "image/tulip.jpg", 
+            description: "Tulipa is what the scientists who pretend they know more than you just because they can add an 'a' to the end of a word call this thing. I'm always reminded of the cone-shaped head of a newborn when gazing upon the springtime buds of this flower, when those buds turn to blossom however it loses that appeal."
+        },
+		hydrangea: { 
+            name: "Hydrangea", 
+            image: "image/hydrangea.jpg", 
+            description: "we're doin these now."
+        },
+		potato: { 
+            name: "Potato", 
+            image: "image/potato.jpg", 
+            description: "Most affectionately referred to as the “Heart of the Earth,” the potato is neither jewel nor beast, yet holds within it the patient thrum of time. Beneath soft soil and loam, it grows in silence—unfussy, unhurried, and impossibly generous. When I first unearthed one in the misty morning of a chill spring, I mistook it for a forgotten relic, some fossilized truth laid bare by accident. But no—she was alive, plump with purpose, and blushing faintly at the touch of sun. The potato does not beg to be admired, and yet, I cannot help but do so. Its form—round, lumpy, honest—is the very antithesis of vanity. It is a food of the people, of the dreamers and the stubborn, and yet I suspect even the gods have reached for one in secret, boiled or baked, steaming and salted just right. How many revolutions has it fueled? How many winter tables has it graced with humble dignity? One might call it sustenance. I call it communion. When the other plants of the garden seem to chatter and preen, the potato listens. It waits. And in that waiting, it becomes something more—a quiet promise, rooted deep, of return and rebirth. —Henri [Field Notes, Soil Month, Year of the Wildberry Famine]"
+        },
+        meatFlower: { 
+            name: "Meat Flower", 
+            image: "image/meatflower2.png", 
+            description: "Dear God, we thank You for this meal and for all the hands that helped prepare it. We give You thanks most of all for the gift of Your Son, Jesus. Please bless the food we eat, all who are gathered today to share it, and all our loved ones who can't be with us today. Allow us to mold thy flesh into something between bloom and decay."
+        },
+		   mayonnaise: { 
+            name: "Mayonnaise", 
+            image: "image/mayonnaise.jpg", 
+            description: "Très bien! A little bit of natures sauce makes our garden's happiness go a long way. Mayonnaise is colloquially known as 'the most fertile of the condiments', such that this oil-in-water emulsion can actually be used in breathing life into beings previously lacking! I need more."
+        },
+		 maurice: { 
+            name: "Maurice", 
+            image: "image/maurice.jpg", 
+            description: "Not a plant I think. Maurice simply showed up one day and refused to leave. He does not grow, nor wilt, nor bear any known fruit, but he is here. He makes eye contact often, and with purpose. Fate may have gifted me this opportunity, as I wanted some extra hands to help around the garden. Manual labor is hard work and Maurice will always work for our bountiful land without asking for anymore than a slab of meat in the cage! Please ensure he does not disturb these ceremonial grounds, he has a tendecy to start digging."
+        },
+		aflower: { 
+            name: "Flower", 
+            image: "image/aflower.jpg", 
+            description: "Wasn’t from any of my seed packets. Sprouted a week or two after I laid the last of the stone markers, right where the soil still looked turned. A single, lidless eye exists from the center of its bloom. It does not lean toward sunlight, nor water, nor warmth—but it does seem to follow me. I don't see anything unusual, things are progressing well. It's simple biology."
+        },
+		 television: { 
+            name: "Inspiration", 
+            image: "image/television.jpg", 
+            description: "Long before the garden, before the loops, before any incident, there was a child who sat far too close to the screen, eyes wide and mind malleable. Those figures behind the glass, they were men, yes, but also flowers. Or perhaps the other way around. It didn’t matter to young Henri. What mattered was the realization: if flowers could be people, could people not be flowers? Thus began the fascination. Not with gardening, but with transfiguration. With the border between stem and spine. With what it might mean to pot a man, water him, and see what blooms. The show has long since been lost to time, but the Television remembers, and sometimes, if the garden is still and the soil is fresh, the voices of the ones that have joined the flowers leak through the static, speaking in their soft gibberish. Listening as intently as he once had in his younger years, Henri understands their every word."
+        },
+        flesh: { 
+            name: "Flesh Homunculus", 
+            image: "image/younglad.jpg", 
+            description: "Carnations are one of my absolute favorite specimens within the caryophyllaceae family, an absolute marvel and testimate to the past 6000 years of botanical cultivation. When flowers so beautiful can be selectively prioritized based on their features, why can't humans as well?"
+        },
+		 garbage: { 
+            name: "garbage", 
+            image: "image/garbage.jpg", 
+            description: "Just some of my things. Some belongings. I'm not much of a hoarder, all my things belong equally so to our goddess mother nature, so I make sure to give back. You ever watch that one American film Wall-e? I remember seeing that little robot fall in love all caused by a single plant sprout. That rare boon of life would've never brought those two robots together if it weren't for all the garbage existing in perpetuity with nature. That dichotomy can be a beautiful thing."
+        },
+		ancientrelic: {
+		    name: "'That Which Consumes'", 
+            image: "image/ancientrelic.png", 
+            description: "The only thing I really need. Without this relic our whole beautiful landscape would be unachievable. That said, it is a lot of work to get reliably working without haveing a botched job on our hands!! Needs a lot of what I percieve as 'garden happiness'. Once she reaches an amount of happiness strong enough, she's what helps me grow the garden even more bountiful."
+        },
+		evidence: { 
+            name: "Evidence.", 
+            image: "image/evidence.jpg", 
+            description: "An artifact of supreme finality. Found it while tilling ground near the Daisies. How poetic. Still has some dried bits of something on the handle. I planted it upright to remind the garden that everything roots back to a choice. I have no intention of removing it. Let it rot with everything else."
+		},
+		corpseflower: { 
+            name: "Corpse Flower", 
+            image: "image/corpseflower.jpg", 
+            description: "Some say it smells like death. That’s not quite right, what it does smell like is everything that comes after. Decay, release, transformation. Others wrinkle their noses, complain, but I find it comforting. You’d be surprised how useful it is, too. Nosey types don’t ask questions when the smell drifts in from my garden. 'Must be the flower again,' they say. It gives me time. It gives me peace. In many ways, it's the most loyal companion I’ve ever had."
+		},
+		carnation: { 
+            name: "Carnation", 
+            image: "image/carnation.jpg", 
+            description: "A fitting first successful growth. A name chosen not for whimsy, but for its painfully literal ambition. After all, what is reincarnation without a vessel? Unlike the crude, gurgling constructs that came before, the Carnation marked the first time I managed to transfer that life force into floral form. When they say a green thumb takes years to cultivate they mean it! The resulting bloom was even more aware of its fate than anticipated however. Not quite conscious, not quite dormant. It would tilt in my direction when entering the garden. Its petals pulsed faintly with each syllable spoken near it. It's lived far, far longer than a normal flower should. Since that time I've kept it in a separate bed. The other plants do not respond well to its presence. Even the weeds grow silent around it. Of course, what I call a success, others might consider a grievous violation of natural order. But that’s the thing about success stories, history remembers them through the lens of the victor. And the Carnation, as it turns out, does not forget."
+		},
+		henriflower: { 
+            name: "Henri", 
+            image: "image/henriflower.jpg", 
+            description: "THERE IS NO TURNING BACK"
+		},
+    };
+
+    function unlockAlmanacEntry(plantName) {
+        if (!unlockedPlants[plantName]) {
+            unlockedPlants[plantName] = true;
+            localStorage.setItem("unlockedPlants", JSON.stringify(unlockedPlants));
+
+            let plant = plantInfo[plantName];
+
+            let entry = document.createElement("div");
+            entry.classList.add("almanac-entry");
+
+            let img = document.createElement("img");
+            img.src = plant.image;
+
+            let text = document.createElement("p");
+            text.textContent = `${plant.name}: ${plant.description}`;
+
+            entry.appendChild(img);
+            entry.appendChild(text);
+            document.getElementById("almanac-entries").appendChild(entry);
+			
+		    showAlmanacToast(plantName);
+        }
+			
+			showPopup();
+        // Show almanac if at least one entry exists
+       
+ document.getElementById("almanac").style.display = "block";
+    }
+
+   function buyPlant(plantName) {
+    let plant = plantData[plantName];
+    let cost = Math.round(plant.cost * (1.3 ** plantsOwned[plantName]));
+
+	    // Restrict purchase if the cost is positive and currency is negative
+    if (cost > 0 && currency < 0) {
+        console.log("Cannot purchase plants that require positive currency with negative balance.");
+        return;  // Prevent purchase if trying to buy a positive-cost item with negative currency
+    }
+     // Modify the condition to allow purchases when the absolute value of currency is sufficient
+    if (Math.abs(currency) >= Math.abs(cost)) {
+        document.getElementById("buy-sound").play().catch((e) => {
+            console.warn("Buy sound blocked or failed to play.", e);
+        });
+
+        // Adjust currency (positive or negative)
+        currency -= cost;
+        plantsOwned[plantName]++;
+        
+		if (plantName === "henriflower" && plantsOwned[plantName] === 1) {
+    triggerHenriEnding();
+}
+        // Handle special behavior for "evidence"
+    if (plantName === "evidence" && plantsOwned[plantName] === 1) {
+    clickValue = -1;
+    currency = 0;
+    gardenHappiness = 0;
+    evidencePurchased = true;
+    localStorage.setItem("evidencePurchased", "true");
+    localStorage.setItem("clickValue", clickValue);
+    localStorage.setItem("currency", currency);
+    localStorage.setItem("gardenHappiness", gardenHappiness);
+    updateCurrencyDisplay();
+}
+		else {
+            clickValue += plant.growth; // Update click value based on the plant
+        }
+
+        // Handle any special plant-related logic (like spawning Maurice)
+        if (plantName === "maurice") {
+            spawnBouncingMaurice();
+        }
+
+        // Save the game state
+        localStorage.setItem("clickValue", clickValue);
+        localStorage.setItem("plantsOwned", JSON.stringify(plantsOwned));
+        updateCurrencyDisplay();
+        updateShopPrices();
+        addPlantToGarden(plantName);
+        updateShopVisibility();
+        unlockAlmanacEntry(plantName);
+		checkShopBackgroundUpdate();
+
+        // Play appropriate sound based on plant
+        handlePlantSounds(plantName);
+    } else {
+        console.log("Not enough currency to buy this item.");
+    }
+}
+
+function handlePlantSounds(plantName) {
+    if (plantName === "mayonnaise") {
+        const mayoSound = document.getElementById("mayonnaise-sound").cloneNode();
+        mayoSound.volume = 0.7;
+        mayoSound.play();
+    } else if (plantName === "maurice") {
+        const mauriceSound = document.getElementById("maurice-sound").cloneNode();
+        mauriceSound.volume = 0.6;
+        mauriceSound.play();
+    } else {
+        // Default buy sound
+        const originalSound = document.getElementById("buy-sound");
+        const buySound = originalSound.cloneNode();
+        buySound.volume = 0.4;
+        buySound.currentTime = 0;
+        buySound.play();
+    }
+}
+	
+let mauriceCounter = 0;
+
+function spawnBouncingMaurice() {
+    const garden = document.getElementById("garden");
+
+    const maurice = document.createElement("img");
+    maurice.src = "image/maurice.png"; // Replace with your actual image path
+    maurice.alt = "Maurice the Monkey";
+    maurice.classList.add("bouncing-maurice");
+    maurice.id = "maurice-" + mauriceCounter++; // Unique ID for each one
+
+    // Randomize initial position and velocity a bit
+    let x = Math.random() * (garden.clientWidth - 64);
+    let y = Math.random() * (garden.clientHeight - 64);
+    let dx = 1 + Math.random() * 2;
+    let dy = 1 + Math.random() * 2;
+
+    garden.appendChild(maurice);
+
+    function update() {
+        const gardenWidth = garden.clientWidth;
+        const gardenHeight = garden.clientHeight;
+
+        const imgWidth = maurice.offsetWidth;
+        const imgHeight = maurice.offsetHeight;
+
+        if (x + dx < 0 || x + dx + imgWidth > gardenWidth) dx *= -1;
+        if (y + dy < 0 || y + dy + imgHeight > gardenHeight) dy *= -1;
+
+        x += dx;
+        y += dy;
+
+        maurice.style.left = `${x}px`;
+        maurice.style.top = `${y}px`;
+
+        requestAnimationFrame(update);
+    }
+
+    update();
+}
+	
+    function loadAlmanac() {
+        if (Object.keys(unlockedPlants).length > 0) {
+            document.getElementById("almanac").style.display = "block";
+
+            for (let plant in unlockedPlants) {
+                unlockAlmanacEntry(plant);
+            }
+        }
+    }
+
+	function showPopup() {
+    const unlockedPlants = JSON.parse(localStorage.getItem("unlockedPlants")) || {};
+    const hasSeenPopup = localStorage.getItem("hasSeenFirstFlowerPopup");
+
+    // Show popup only if this is the first plant unlocked
+    if (Object.keys(unlockedPlants).length === 1 && !hasSeenPopup) {
+        const popup = document.createElement("div");
+        popup.classList.add("popup");
+
+        const henriImg = document.createElement("img");
+        henriImg.src = "image/almanac.gif"; // Adjust this path as needed
+        henriImg.alt = "Henri";
+        henriImg.classList.add("henri-image");
+
+        const message = document.createElement("div");
+        message.classList.add("popup-message");
+        message.innerHTML = `
+            <h2>Congratulations!</h2>
+            <p>You've planted your very first flower and begun your gardening journey!!!</p>
+            <p>Henri has taken notice of your actions. He will now begin to fill his almanac with entries of the types of flowers you've acquired for the first time. Be sure to check in on his brave insights and personal perspectives!</p>
+        `;
+
+        popup.appendChild(henriImg);
+        popup.appendChild(message);
+        document.body.appendChild(popup);
+		
+		        // Mark popup as seen
+        localStorage.setItem("hasSeenFirstFlowerPopup", "true");
+
+        // Optional: Auto-dismiss or require click to close
+        popup.addEventListener("click", () => popup.remove());
+    }
+}   
+	function showAlmanacToast(entryName) {
+    const toast = document.createElement("div");
+    toast.classList.add("almanac-toast");
+    toast.innerHTML = `<strong>New Almanac Entry:</strong> ${entryName}`;
+
+    document.body.appendChild(toast);
+
+    // Auto-fade out after 4 seconds
+    setTimeout(() => {
+        toast.classList.add("fade-out");
+        setTimeout(() => toast.remove(), 1000); // Wait for fade-out animation
+    }, 4000);
+}
+window.onload = function () {
+    updateCurrencyDisplay();
+    updateShopPrices();
+    loadGardenState();
+	checkShopBackgroundUpdate();
+    updateShopVisibility(); // include this
+	loadAlmanac();
+    if (grassPurchased) {
+        document.getElementById("garden").style.backgroundImage = "url('image/grass.gif')";
+        document.getElementById("buy-grass").disabled = true;
+		
+    }     
+    };
+	
+let musicStarted = false;
+
+function startMusic() {
+  if (!musicStarted) {
+    const music = document.getElementById("background-music");
+    music.volume = 0.4; // optional: adjust volume
+    music.play().catch((e) => {
+      console.warn("Autoplay blocked until interaction.");
+    });
+    musicStarted = true;
+  }
+}
+
+// Listen for user interaction to enable music
+window.addEventListener("click", startMusic);
+window.addEventListener("keydown", startMusic);
+	
+let musicStage = parseInt(localStorage.getItem("musicStage")) || 1;
+
+function updateBackgroundMusic(currency) {
+  const music = document.getElementById("background-music");
+  if (!music) return;
+
+  const currentTrack = music.src.split("/").pop();
+
+  if (currency <= -1 && musicStage < 4) {
+    music.src = "audio/music4.mp3";
+    music.play();  
+    musicStage = 4;
+    localStorage.setItem("musicStage", 4);
+  } else if (currency >= 100000000 && musicStage < 3) {
+    music.src = "audio/music3.mp3";
+    music.play();
+    musicStage = 3;
+    localStorage.setItem("musicStage", 3);
+  } else if (currency >= 10000 && musicStage < 2) {
+    music.src = "audio/music2.mp3";
+    music.play();
+    musicStage = 2;
+    localStorage.setItem("musicStage", 2);
+  } else if (musicStage === 1 && currentTrack !== "music1.mp3") {
+    music.src = "audio/music1.mp3";
+    music.play();
+  }
+}
+function triggerHenriEnding() {
+    // Stop background music
+    const bgMusic = document.getElementById("background-music");
+    if (bgMusic) {
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+    }
+
+    // Mute all audio elements
+    document.querySelectorAll("audio").forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
+
+    // Create overlay
+    const overlay = document.createElement("div");
+    overlay.id = "henri-ending-overlay";
+    Object.assign(overlay.style, {
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        backgroundColor: "black",
+        zIndex: 10000,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        color: "white",
+        fontSize: "1.5rem",
+        textAlign: "center",
+        padding: "2rem"
+    });
+
+    // Add Henri image
+    const henriImg = document.createElement("img");
+    henriImg.src = "image/henri.gif";
+    henriImg.alt = "Henri";
+    henriImg.style.width = "300px";
+    henriImg.style.marginBottom = "1rem";
+    overlay.appendChild(henriImg);
+
+    // Message container (single-line)
+    const messageBox = document.createElement("div");
+    messageBox.classList.add("fade-line"); // fading animation
+    overlay.appendChild(messageBox);
+
+    const messages = [
+        "You’ve done well.",
+        "You gave so much. Watered what others would have left to wilt. Laughed at rot. Danced in decay.",
+        "This garden… it has bloomed because of you.",
+        "And now, it is full. Full of joy. Full of grief. Full of something… yet not truly alive.",
+        "You’ve given it everything, yes.",
+        "...",
+        "Except yourself.",
+        "It’s time now.",
+        "Time to rest.",
+        "Time to give back.",
+        "Time to become.",
+        "You will be beautiful.",
+        "Thank you, little gardener.",
+        "Sink into the soil.",
+        "And let something else grow.",
+    ];
+
+    let currentMessageIndex = 0;
+
+    function showNextMessage() {
+        if (currentMessageIndex < messages.length) {
+            messageBox.style.opacity = 0;
+            setTimeout(() => {
+                messageBox.textContent = messages[currentMessageIndex];
+                messageBox.style.opacity = 1;
+                currentMessageIndex++;
+            }, 300); // short delay between fade out and new line
+        } else {
+            setTimeout(() => {
+                localStorage.clear();
+                location.reload();
+            }, 3000); // final pause before reset
+        }
+    }
+
+    overlay.addEventListener("click", showNextMessage);
+    showNextMessage();
+
+    document.body.appendChild(overlay);
+}
+	
+    </script>
+	<div id="almanac">
+    <h2>Garden Almanac</h2>
+		<div id="almanac-entries"></div>
+</div>
+	<button id="reset-button" onclick="resetGame()">Reset Garden</button>
+  
+  <source src="audio/music1.mp3" type="audio/mp3">
+
+</audio>
+	
+	<script src="script.js"></script>
+</body>
+</html>
